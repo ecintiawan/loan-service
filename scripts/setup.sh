@@ -17,4 +17,9 @@ chmod +x $file
 test -f $file && echo "$file exists."
 echo ""
 
+echo -e "\e[32mSetup:\e[33m copy template credential config.\e[0m"
+dir="files/etc/credential/development"
+[ ! -d "$dir" ] && mkdir -p "$dir"
+cp files/etc/credential/loan-service.secret.json.sample files/etc/credential/development/loan-service.secret.json
+
 echo -e "\e[32mSetup:\e[33m success.\e[0m"

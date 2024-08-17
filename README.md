@@ -11,19 +11,25 @@ Make sure go version >=1.20 is already installed on your machine.
 All commands below should be run on project root folder.
 ```
 
-### Pull dependencies:
+### Pull dependencies
 
 ```shell
 go mod tidy && go mod vendor -v
 ```
 
-### Setup your environment:
+### Setup your environment
 
 ```shell
 make setup
 ```
 
-### Run dependencies and the application using:
+### Setup your own credential config
+
+```shell
+code files/etc/credential/development/loan-service.secret.json
+```
+
+### Run dependencies and the application
 
 ```shell
 make docker-start
