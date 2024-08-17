@@ -1,0 +1,9 @@
+/development
+/logs
+/vendor
+/upload
+
+files/etc/credential/*
+!files/etc/credential/loan-service.secret.json.sample
+
+main

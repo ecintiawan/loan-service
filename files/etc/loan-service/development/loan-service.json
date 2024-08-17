@@ -1,0 +1,21 @@
+{
+    "app": {
+        "port": "8080"
+    },
+    "vendor": {
+        "upload": {
+            "path": "./upload",
+            "url": "http://127.0.0.1:8080/download/%s"
+        },
+        "email": {
+            "smtp_host": "smtp.gmail.com",
+            "smtp_port": "587",
+            "sender_name": "Admin"
+        },
+        "default_approval_proof": {},
+        "default_agreement_letter": {
+            "file_path": "./upload/agreement_letter_default.pdf",
+            "destination_file_name": "agreement_letter_%s.pdf"
+        }
+    }
+}

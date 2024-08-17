@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    image: golang:1.20.3-alpine
+    volumes:
+      - .:/go/src/app
+    networks:
+      - shared_network
+    working_dir: /go/src/app
+    command: go run ./cmd/http/main.go
+    ports:
+      - '8080:8080'
+
+  db:
+    image: postgres:14.1-alpine
+    container_name: loan-service-postgres
+    volumes:
+      - ./schema:/docker-entrypoint-initdb.d
+      - loan_service_database:/var/lib/postgresql/data
+    networks:
+      - shared_network
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=loan-service
+      - POSTGRES_USER=some_user
+      - POSTGRES_PASSWORD=some_password
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  loan_service_database:
+    driver: local
+
+networks:
+  shared_network:
+    driver: bridge
